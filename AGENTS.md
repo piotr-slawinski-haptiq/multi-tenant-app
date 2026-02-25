@@ -12,12 +12,17 @@ This is a frontend-only multi-tenant React SPA (Vite + TypeScript + SCSS). No ba
 
 ### Tenant routes on localhost
 
-Tenant is detected from the URL path segment:
-- `/` — default tenant
-- `/drf` — DRF Racing tenant
-- `/venu` — Venu Plus tenant
+Tenant is detected from the first URL path segment using the known tenant list in `src/config/tenants.ts`.
+Page routes (e.g., `/reports`, `/settings`) are handled by React Router with a tenant-aware `basename`.
 
-Tenant config JSON files live in `public/tenants/`.
+- `/` — default tenant, dashboard
+- `/reports` — default tenant, reports page
+- `/settings` — default tenant, settings page
+- `/drf` — DRF Racing tenant, dashboard
+- `/drf/reports` — DRF Racing, reports page
+- `/venu/settings` — Venu Plus, settings page
+
+When adding a new tenant, add its ID to `TENANT_IDS` in `src/config/tenants.ts` and create a matching JSON config in `public/tenants/`.
 
 ### Common commands
 
