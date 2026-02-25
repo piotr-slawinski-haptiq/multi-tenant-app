@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useTenant } from '../../utils/tenant/tenantContext';
 import '../../styles/theme.scss';
 
@@ -21,9 +22,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuClick, showMenuButton }) =
         {tenant?.branding?.logo && <img src={tenant.branding.logo} alt="logo" className="navbar-logo" />}
       </div>
       <div className="navbar-links">
-        <a href="#">Home</a>
-        <a href="#">Reports</a>
-        <a href="#">Settings</a>
+        <NavLink to="/" end>
+          Home
+        </NavLink>
+        <NavLink to="/reports">Reports</NavLink>
+        <NavLink to="/settings">Settings</NavLink>
       </div>
     </nav>
   );

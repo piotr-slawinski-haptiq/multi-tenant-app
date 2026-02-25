@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import { useTenant } from '../../utils/tenant/tenantContext';
 import { Navbar } from './Navbar';
 import { Sidebar } from './Sidebar';
 import { Footer } from './Footer';
 import '../../styles/theme.scss';
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const Layout: React.FC = () => {
   const { tenant } = useTenant();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -18,7 +19,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
       <div className="content-wrapper">
         {hasSidebar && sidebarOpen && <Sidebar isOpen={sidebarOpen} />}
-        <main className="main-content">{children}</main>
+        <main className="main-content">
+          <Outlet />
+        </main>
       </div>
 
       <Footer />

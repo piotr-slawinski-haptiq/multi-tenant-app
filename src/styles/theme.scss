@@ -46,9 +46,19 @@ body {
   text-decoration: none;
   margin-left: 1.25rem;
   font-weight: 500;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 
   &:hover {
     color: var(--accent);
+  }
+
+  &.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
   }
 }
 
@@ -99,8 +109,18 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    transition:
+      background 0.2s,
+      color 0.2s;
 
     &:hover {
+      color: var(--accent);
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.15);
       color: var(--accent);
     }
   }
@@ -207,4 +227,70 @@ body {
   width: 111px;
   height: 60px;
   object-fit: contain;
+}
+
+/* =======================
+   Pages
+   ======================= */
+.page-description {
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.report-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* Settings definition list */
+.settings-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0.75rem 0 0;
+
+  dt {
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.color-swatch-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+}
+
+/* 404 page */
+.page-not-found {
+  text-align: center;
+  padding: 4rem 1rem;
+
+  h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
 }
